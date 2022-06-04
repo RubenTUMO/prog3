@@ -1,9 +1,7 @@
-class GrassEater {
+class GrassEater extends LivingCreature {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.energy = 8
-        this.directions = [];
+        super(x, y);
+        this.energy = 13;
     }
     getNewCoordinates() {
         this.directions = [
@@ -18,19 +16,8 @@ class GrassEater {
         ];
     }
     chooseCell(character) {
-        this.getNewCoordinates()
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-
-        return found;
+        this.getNewCoordinates();
+        return super.chooseCell(character);
     }
 
     mul() {
@@ -52,7 +39,7 @@ class GrassEater {
         this.energy--
         var emptyCells = this.chooseCell(0);
         var newCell = random(emptyCells);
-        if(newCell && this.energy >= 0) {
+        if (newCell && this.energy >= 0) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = matrix[this.y][this.x] ///kam 2 tiv@
@@ -65,9 +52,9 @@ class GrassEater {
     }
 
     eat() {
-        var emptyCells = this.chooseCell(1,5);
+        var emptyCells = this.chooseCell(1, 5);
         var newCell = random(emptyCells);
-        if(newCell) {
+        if (newCell) {
             this.energy++
             var newX = newCell[0];
             var newY = newCell[1];
@@ -87,8 +74,8 @@ class GrassEater {
                     break;
                 }
             }
-            
-            if(this.energy >= 12) {
+
+            if (this.energy >= 12) {
                 this.mul()
             }
         } else {
