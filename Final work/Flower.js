@@ -11,7 +11,7 @@ chooseCell(character) {
 mul() {
     this.multiply++;
     var emptyCells = this.chooseCell(1);
-    var newCell = random(emptyCells);
+    var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
     if (newCell && this.multiply >= 70) {
         var newX = newCell[0];

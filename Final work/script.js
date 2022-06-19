@@ -1,17 +1,17 @@
 
 var socket = io();
 // console.log(matrix)
-var side = 12;
+var side = 15;
 
 let colors = ['orange', 'blue', 'white', 'pink', 'purple']
 
 function setup() {
     frameRate(5);
-    createCanvas(1992, 900);
+    createCanvas(75  * side, 70 * side);
     background('#acacac');
 }
 
-function draww() {
+function draww(matrix) {
 
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
@@ -32,7 +32,7 @@ function draww() {
                 fill("darkcyan");
             }
             else if (matrix[y][x] == 5) {
-                fill(random(colors));
+                fill(colors[Math.floor(Math.random() * colors.length)]);
             }
 
             rect(x * side, y * side, side, side);
@@ -43,6 +43,11 @@ function draww() {
 }
 setInterval(
     function () {
-        socket.on('send matrix', nkarel)
-    }, 1000
+        socket.on('send matrix', draww)
+    }, 200
 )
+
+btn = document.getElementById("")
+function hey(){
+    socket.emit("barev")
+}

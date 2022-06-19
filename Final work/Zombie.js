@@ -23,7 +23,7 @@ module.exports = class Zombie extends LivingCreature {
 
     mul() {
         var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
         if (newCell) {
             var newX = newCell[0];
@@ -37,7 +37,7 @@ module.exports = class Zombie extends LivingCreature {
     }
     move() {
         var emptyCells = this.chooseCell(0,1);
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
         if(newCell && this.energy >= 0) {
             var newX = newCell[0];
             var newY = newCell[1];
@@ -58,7 +58,7 @@ module.exports = class Zombie extends LivingCreature {
 
     zombify() {
         var emptyCells = this.chooseCell(2,3);
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
         if(newCell) {
             this.energy++
             var newX = newCell[0];

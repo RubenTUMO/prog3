@@ -12,15 +12,6 @@ app.get('/', function (req, res) {
 server.listen(3000);
 
 
-// io.on('connection', function (socket) {
-//   for (var i in messages) {
-//     socket.emit("display message", messages[i]);
-//   }
-//   socket.on("send message", function (data) {
-//     messages.push(data);
-//     io.sockets.emit("display message", data);
-//   });
-// });
 
 function generate(matLen, gr, grEat, pr, zomb, flow) {
   let matrix = []
@@ -134,8 +125,20 @@ function game() {
   }
   io.sockets.emit("send matrix", matrix);
 }
-setInterval(game, 1000)
+setInterval(game, 200)
 
 io.on('connection', function (socket) {
   createObject(matrix)
 })
+count = 1
+function hey () {
+    count++
+    console.log("hey", count);
+    
+}
+io.on("connection",function (socket){
+
+    socket.on("barev",hey)
+}
+
+)
