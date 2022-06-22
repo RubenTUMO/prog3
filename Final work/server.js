@@ -32,7 +32,7 @@ function generate(matLen, gr, grEat, pr, zomb, flow) {
   for (let i = 0; i < grEat; i++) {
     let x = Math.floor(Math.random() * matLen)
     let y = Math.floor(Math.random() * matLen)
-    console.log(x, y);
+    // console.log(x, y);
     if (matrix[y][x] == 0) {
       matrix[y][x] = 2
     }
@@ -40,7 +40,7 @@ function generate(matLen, gr, grEat, pr, zomb, flow) {
   for (let i = 0; i < pr; i++) {
     let x = Math.floor(Math.random() * matLen)
     let y = Math.floor(Math.random() * matLen)
-    console.log(x, y);
+    // console.log(x, y);
     if (matrix[y][x] == 0) {
       matrix[y][x] = 3
     }
@@ -48,7 +48,7 @@ function generate(matLen, gr, grEat, pr, zomb, flow) {
   for (let i = 0; i < zomb; i++) {
     let x = Math.floor(Math.random() * matLen)
     let y = Math.floor(Math.random() * matLen)
-    console.log(x, y);
+    // console.log(x, y);
     if (matrix[y][x] == 0) {
       matrix[y][x] = 4
     }
@@ -56,15 +56,16 @@ function generate(matLen, gr, grEat, pr, zomb, flow) {
   for (let i = 0; i < flow; i++) {
     let x = Math.floor(Math.random() * matLen)
     let y = Math.floor(Math.random() * matLen)
-    console.log(x, y);
+    // console.log(x, y);
     if (matrix[y][x] == 0) {
       matrix[y][x] = 5
     }
   }
   return matrix
 }
- matrix = generate(166, 500, 60, 50, 18, 10)
+ matrix = generate(50, 25, 35, 30, 9, 5)
 io.sockets.emit('send matrix', matrix)
+// console.log(matrix);
  grassArr = []
  grassEaterArr = []
  predatorArr = []
@@ -84,6 +85,7 @@ function createObject(matrix) {
       if (matrix[y][x] == 1) {
         let gr = new Grass(x, y)
         grassArr.push(gr)
+        // console.log(grassArr);
       } else if (matrix[y][x] == 2) {
         let gr = new GrassEater(x, y)
         grassEaterArr.push(gr)
@@ -110,6 +112,7 @@ function createObject(matrix) {
 function game() {
   for (var i in grassArr) {
     grassArr[i].mul()
+    // console.log(grassArr);
   }
   for (let i in grassEaterArr) {
     grassEaterArr[i].eat()
@@ -125,15 +128,14 @@ function game() {
   }
   io.sockets.emit("send matrix", matrix);
 }
-setInterval(game, 200)
+setInterval(game, 1000)
 
 io.on('connection', function (socket) {
   createObject(matrix)
 })
 count = 1
 function hey () {
-    count++
-    console.log("hey", count);
+  generate(gr)
     
 }
 io.on("connection",function (socket){

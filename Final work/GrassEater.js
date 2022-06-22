@@ -44,7 +44,7 @@ module.exports = class GrassEater extends LivingCreature {
 			this.energy++;
 
 			if (this.energy >= 12) {
-				console.log(this.energy);
+				// console.log(this.energy);
 				this.mul();
 			}
 

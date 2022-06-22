@@ -6,13 +6,13 @@ var side = 15;
 let colors = ['orange', 'blue', 'white', 'pink', 'purple']
 
 function setup() {
-    frameRate(5);
-    createCanvas(75  * side, 70 * side);
+    // frameRate(5);
+    createCanvas(35  * side, 35 * side);
     background('#acacac');
 }
 
 function draww(matrix) {
-
+// console.log(matrix);
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
@@ -41,12 +41,11 @@ function draww(matrix) {
         }
     }
 }
-setInterval(
-    function () {
-        socket.on('send matrix', draww)
-    }, 200
-)
+setInterval(function(){
 
+    socket.on('send matrix', draww)
+},1000)
+    
 btn = document.getElementById("")
 function hey(){
     socket.emit("barev")

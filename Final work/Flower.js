@@ -5,12 +5,9 @@ module.exports = class Flower extends LivingCreature{
         this.multiply = 10
 }
 
-chooseCell(character) {
-    return super.chooseCell(character);
-}
 mul() {
     this.multiply++;
-    var emptyCells = this.chooseCell(1);
+    var emptyCells = super.chooseCell(1);
     var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
     if (newCell && this.multiply >= 70) {
