@@ -45,7 +45,9 @@ setInterval(function(){
 
     socket.on('send matrix', draww)
 },1000)
-    
+   
+
+
 btn = document.getElementById("")
 function hey(){
     socket.emit("barev")

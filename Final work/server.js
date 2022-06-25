@@ -63,7 +63,7 @@ function generate(matLen, gr, grEat, pr, zomb, flow) {
   }
   return matrix
 }
- matrix = generate(50, 25, 35, 30, 9, 5)
+ matrix = generate(525, 25, 30, 30, 9, 5)
 io.sockets.emit('send matrix', matrix)
 // console.log(matrix);
  grassArr = []
@@ -135,7 +135,7 @@ io.on('connection', function (socket) {
 })
 count = 1
 function hey () {
-  generate(gr)
+ 
     
 }
 io.on("connection",function (socket){
