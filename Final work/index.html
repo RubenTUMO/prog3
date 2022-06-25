@@ -6,61 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="socket.io/socket.io.js"></script>
-    <title>Document</title>
+    <title>FieldForest</title>
 </head>
 
 <body>
-    <style>
-        #defaultCanvas0 {
-            margin-left: 650px;
-            border: 3px gray solid
-        }
-
-        #maindiv {
-            display: block;
-            width: 100px;
-            height: auto;
-        }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
-    <script src="script.js"></script>
-
-    <div id="maindiv">
-        <button>Create a Zombie</button>
-        <button>Create a Flower</button>
-        <button></button>
-        <button></button>
-        <button></button>
-    </div>
-    <style>
-        .accordion {
-            background-color: #eee;
-            color: #444;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-            transition: 0.4s;
-        }
-
-        .active,
-        .accordion:hover {
-            background-color: #ccc;
-        }
-
-        .panel {
-            padding: 0 18px;
-            display: none;
-            background-color: white;
-            overflow: hidden;
-        }
-    </style>
-    </head>
-
-    <body>
+    <div id="tools">
         <button class="accordion">Grass</button>
         <div class="panel">
             <button onclick="hey()">Create 1 Grass</button>
@@ -97,63 +47,136 @@
             <button>Remove 5 Predators</button>
             <button>Remove 10 Predators</button>
         </div>
+        <button class="accordion">Zombie</button>
+        <div class="panel">
+            <button onclick="hey()">Create 1 Zombie</button>
+            <button>Create 2 Zombies</button>
+            <button>Create 5 Zombies</button>
+            <button>Create 10 Zombies</button>
+            <button>Remove 1 Zombie</button>
+            <button>Remove 2 Zombies</button>
+            <button>Remove 5 Zombies</button>
+            <button>Remove 10 Zombies</button>
 
-        <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
+        </div>
+        <button class="accordion">Flower</button>
+        <div class="panel">
+            <button onclick="hey()">Create 1 Flower</button>
+            <button>Create 2 Flowers</button>
+            <button>Create 5 Flowers</button>
+            <button>Create 10 Flowers</button>
+            <button>Remove 1 Flower</button>
+            <button>Remove 2 Flowers</button>
+            <button>Remove 5 Flowers</button>
+            <button>Remove 10 Flowers</button>
 
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.display === "block") {
-                        panel.style.display = "none";
-                    } else {
-                        panel.style.display = "block";
-                    }
-                });
-            }
-        </script>
-        <style>
-            .accordion:after {
-                content: '\02795';
-                font-size: 13px;
-                color: #777;
-                float: right;
-                margin-left: 5px;
-            }
+        </div>
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-            .active:after {
-                content: "\2796";
-            }
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+    <style>
+        .accordion:after {
+            content: '\02795';
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
 
-            .panel {
-                padding: 0 18px;
-                background-color: white;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.2s ease-out;
-            }
-        </style>
+        .active:after {
+            content: "\2796";
+        }
 
-        <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
 
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.maxHeight) {
-                        panel.style.maxHeight = null;
-                    } else {
-                        panel.style.maxHeight = panel.scrollHeight + "px";
-                    }
-                });
-            }
-        </script>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-        <h1></h1>
-    </body>
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+    <h1></h1>
+    <style>
+        #defaultCanvas0 {
+            margin-left: 650px;
+            border: 3px gray solid
+        }
+
+        #maindiv {
+            display: block;
+            width: 100pnpmx;
+            height: auto;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 10%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            width: 218.5px;
+            height: 100px;
+            padding: 0 18px;
+            border: 0px solid aliceblue;
+            display: flex;
+            flex-direction: column;
+            background-color: #eee;
+            overflow: hidden;
+
+        }
+        #tools{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</body>
 
 </html>
