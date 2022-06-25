@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,26 +15,145 @@
             margin-left: 650px;
             border: 3px gray solid
         }
-        #maindiv{
+
+        #maindiv {
             display: block;
             width: 100px;
             height: auto;
         }
-
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script src="script.js"></script>
+
     <div id="maindiv">
-        <button onclick = "hey()" >Create a Grass</button>
-        <button>Create a GrassEater</button>
-        <button>Create a Predator</button>
         <button>Create a Zombie</button>
         <button>Create a Flower</button>
         <button></button>
         <button></button>
         <button></button>
     </div>
- 
-    <h1></h1>
-</body>
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+    </head>
+
+    <body>
+        <button class="accordion">Grass</button>
+        <div class="panel">
+            <button onclick="hey()">Create 1 Grass</button>
+            <button>Create 2 Grasses</button>
+            <button>Create 5 Grasses</button>
+            <button>Create 10 Grasses</button>
+            <button>Remove 1 Grass</button>
+            <button>Remove 2 Grasses</button>
+            <button>Remove 5 Grasses</button>
+            <button>Remove 10 Grasses</button>
+
+        </div>
+
+        <button class="accordion">GrassEater</button>
+        <div class="panel">
+            <button onclick="hey()">Create 1 GrassEater</button>
+            <button>Create 2 GrassEaters</button>
+            <button>Create 5 GrassEaters</button>
+            <button>Create 10 GrassEaters</button>
+            <button>Remove 1 GrassEater</button>
+            <button>Remove 2 GrassEaters</button>
+            <button>Remove 5 GrassEaters</button>
+            <button>Remove 10 GrassEaters</button>
+        </div>
+
+        <button class="accordion">Predator</button>
+        <div class="panel">
+            <button onclick="hey()">Create 1 Predator</button>
+            <button>Create 2 Predators</button>
+            <button>Create 5 Predators</button>
+            <button>Create 10 Predators</button>
+            <button>Remove 1 Predator</button>
+            <button>Remove 2 Predators</button>
+            <button>Remove 5 Predators</button>
+            <button>Remove 10 Predators</button>
+        </div>
+
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        </script>
+        <style>
+            .accordion:after {
+                content: '\02795';
+                font-size: 13px;
+                color: #777;
+                float: right;
+                margin-left: 5px;
+            }
+
+            .active:after {
+                content: "\2796";
+            }
+
+            .panel {
+                padding: 0 18px;
+                background-color: white;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s ease-out;
+            }
+        </style>
+
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+
+        <h1></h1>
+    </body>
+
 </html>
