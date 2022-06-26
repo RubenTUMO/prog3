@@ -135,7 +135,15 @@ io.on('connection', function (socket) {
 })
 count = 1
 function hey () {
- 
+  for (var y = 0; y < matrix.length; y++) {
+		for (var x = 0; x < matrix[y].length; x++) {
+		if (matrix[y][x] == 0) {
+				let  gr = new Grass(x, y)
+				grassArr.push(gr)
+				matrix[y][x] = 1			
+		}		 
+	  }
+	}
     
 }
 io.on("connection",function (socket){

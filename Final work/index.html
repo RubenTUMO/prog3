@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,110 +7,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="socket.io/socket.io.js"></script>
     <title>FieldForest</title>
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/gif" href="favicon/animated_favicon1.gif">
 </head>
 
 <body>
-        <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Color</th>
-                        <th scope="col">Description</th>
-                        <th>Count</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td scope="row" style="background-color:green;"></td>
-                        <td>The green colors are Grasses.</td>
-                        <td id="grassCount"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td scope="row" style="background-color:orange;"></td>
-                        <td>The orange colors are GrassEaters. They can eat the grasses.</td>
-                        <td id="grassEaterCount"></td>
-                    </tr>
-                    <tr>
-                            <th scope="row">3</th>
-                            <td scope="row" style="background-color:red;"></td>
-                            <td>The red colors are Predators. They can eat the GrassEater </td>
-                            <td id="PredatorCount"></td>
-                        </tr>
-                        <tr>
-                                <th scope="row">4</th>
-                                <td scope="row" style="background-color:darkcyan;"></td>
-                                <td>The darkcyan colors are Zombies. They can eat the Predators and GrassEaters.</td>
-                                <td id="ZombieCount"></td>
-                            </tr>
-                            <tr>
-                                    <th scope="row">5</th>
-                                    <td scope="row" style="background-color:orange;"></td>
-                                    <td>The colorfuls are Flowers. They are growing in the Grasses.</td>
-                                    <td id="FlowerCount"></td>
-                                </tr>
-                </tbody>
-            </table>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Color</th>
+                <th scope="col">Description</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td scope="row" style="background-color:green;"></td>
+                <td>The green colors are Grasses.</td>
+                <td id="grassCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td scope="row" style="background-color:orange;"></td>
+                <td>The orange colors are GrassEaters. They can eat the grasses.</td>
+                <td id="grassEaterCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td scope="row" style="background-color:red;"></td>
+                <td>The red colors are Predators. They can eat the GrassEater </td>
+                <td id="PredatorCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td scope="row" style="background-color:darkcyan;"></td>
+                <td>The darkcyan colors are Zombies. They can eat the Predators and GrassEaters.</td>
+                <td id="ZombieCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td scope="row" style="background: linear-gradient(45deg, orange, blue, white, pink, purple);"></td>
+                <td>The colorfuls are Flowers. They are growing in the Grasses.</td>
+                <td id="FlowerCount"></td>
+            </tr>
+        </tbody>
+    </table>
     <div id="tools">
         <button class="accordion">Grass</button>
         <div class="panel">
-            <button  class="but" role="button " onclick="hey()">Create 1 Grass</button>
-            <button class="but" >Create 2 Grasses</button>
-            <button class="but" >Create 5 Grasses</button>
-            <button class="but" >Create 10 Grasses</button>
-            <button class="but" >Remove 1 Grass</button>
-            <button class="but" >Remove 2 Grasses</button>
+            <button class="but" role="button " onclick="hey()">Create 1 Grass</button>
+            <button class="but">Create 2 Grasses</button>
+            <button class="but">Create 5 Grasses</button>
+            <button class="but">Create 10 Grasses</button>
+            <button class="but">Remove 1 Grass</button>
+            <button class="but">Remove 2 Grasses</button>
             <button class="but"> Remove 5 Grasses</button>
-            <button class="but" >Remove 10 Grasses</button>
+            <button class="but">Remove 10 Grasses</button>
 
         </div>
 
         <button class="accordion">GrassEater</button>
         <div class="panel">
-            <button  class="but" onclick="hey()">Create 1 GrassEater</button>
-            <button class="but" >Create 2 GrassEaters</button>
-            <button class="but" >Create 5 GrassEaters</button>
-            <button class="but" >Create 10 GrassEaters</button>
-            <button class="but" >Remove 1 GrassEater</button>
-            <button class="but" >Remove 2 GrassEaters</button>
-            <button class="but" >Remove 5 GrassEaters</button>
-            <button class="but" >Remove 10 GrassEaters</button>
+            <button class="but" onclick="hey()">Create 1 GrassEater</button>
+            <button class="but">Create 2 GrassEaters</button>
+            <button class="but">Create 5 GrassEaters</button>
+            <button class="but">Create 10 GrassEaters</button>
+            <button class="but">Remove 1 GrassEater</button>
+            <button class="but">Remove 2 GrassEaters</button>
+            <button class="but">Remove 5 GrassEaters</button>
+            <button class="but">Remove 10 GrassEaters</button>
         </div>
 
         <button class="accordion">Predator</button>
         <div class="panel">
-            <button  class="but" onclick="hey()">Create 1 Predator</button>
-            <button class="but" >Create 2 Predators</button>
-            <button class="but" >Create 5 Predators</button>
-            <button class="but" >Create 10 Predators</button>
-            <button class="but" >Remove 1 Predator</button>
-            <button class="but" >Remove 2 Predators</button>
-            <button class="but" >Remove 5 Predators</button>
-            <button class="but" >Remove 10 Predators</button>
+            <button class="but" onclick="hey()">Create 1 Predator</button>
+            <button class="but">Create 2 Predators</button>
+            <button class="but">Create 5 Predators</button>
+            <button class="but">Create 10 Predators</button>
+            <button class="but">Remove 1 Predator</button>
+            <button class="but">Remove 2 Predators</button>
+            <button class="but">Remove 5 Predators</button>
+            <button class="but">Remove 10 Predators</button>
         </div>
         <button class="accordion">Zombie</button>
         <div class="panel">
-            <button  class="but" onclick="hey()">Create 1 Zombie</button>
-            <button class="but" >Create 2 Zombies</button>
-            <button class="but" >Create 5 Zombies</button>
-            <button class="but" >Create 10 Zombies</button>
-            <button class="but" >Remove 1 Zombie</button>
-            <button class="but" >Remove 2 Zombies</button>
-            <button class="but" >Remove 5 Zombies</button>
-            <button class="but" >Remove 10 Zombies</button>
+            <button class="but" onclick="hey()">Create 1 Zombie</button>
+            <button class="but">Create 2 Zombies</button>
+            <button class="but">Create 5 Zombies</button>
+            <button class="but">Create 10 Zombies</button>
+            <button class="but">Remove 1 Zombie</button>
+            <button class="but">Remove 2 Zombies</button>
+            <button class="but">Remove 5 Zombies</button>
+            <button class="but">Remove 10 Zombies</button>
 
         </div>
         <button class="accordion">Flower</button>
         <div class="panel">
-            <button  class="but" onclick="hey()">Create 1 Flower</button>
-            <button class="but" >Create 2 Flowers</button>
-            <button class="but" >Create 5 Flowers</button>
-            <button class="but" >Create 10 Flowers</button>
-            <button class="but" >Remove 1 Flower</button>
-            <button class="but" >Remove 2 Flowers</button>
-            <button class="but" >Remove 5 Flowers</button>
-            <button class="but" >Remove 10 Flowers</button>
+            <button class="but" onclick="hey()">Create 1 Flower</button>
+            <button class="but">Create 2 Flowers</button>
+            <button class="but">Create 5 Flowers</button>
+            <button class="but">Create 10 Flowers</button>
+            <button class="but">Remove 1 Flower</button>
+            <button class="but">Remove 2 Flowers</button>
+            <button class="but">Remove 5 Flowers</button>
+            <button class="but">Remove 10 Flowers</button>
 
         </div>
     </div>
@@ -131,9 +133,12 @@
         }
     </script>
     <style>
-         tr, td, th{
-            border:2px solid black
+        tr,
+        td,
+        th {
+            border: 2px solid black
         }
+
         .accordion:after {
             content: '\02795';
             font-size: 13px;
@@ -153,7 +158,8 @@
             overflow: hidden;
             transition: max-height 0.2s ease-out;
         }
-        table{
+
+        table {
             position: absolute;
             margin-left: 1550px
         }
@@ -203,7 +209,7 @@
             text-align: left;
             outline: none;
             font-size: 15px;
-            transition: 0.4s;   
+            transition: 0.4s;
         }
 
         .active,
@@ -223,41 +229,42 @@
 
 
         }
-        #tools{
+
+        #tools {
             display: flex;
             flex-direction: column;
         }
 
-/* CSS */
-.but {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
-  cursor: pointer;
-  border: 3px solid;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin: 4px
-}
+        /* CSS */
+        .but {
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #000;
+            cursor: pointer;
+            border: 3px solid;
+            padding: 0.25em 0.5em;
+            box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+            position: relative;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            margin: 4px
+        }
 
-.but:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
-}
+        .but:active {
+            box-shadow: 0px 0px 0px 0px;
+            top: 5px;
+            left: 5px;
+        }
 
-@media (min-width: 768px) {
-  .but {
-    padding: 0.25em 0.75em;
-  }
-}
+        @media (min-width: 768px) {
+            .but {
+                padding: 0.25em 0.75em;
+            }
+        }
     </style>
 </body>
 
