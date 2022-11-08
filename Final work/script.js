@@ -1,6 +1,6 @@
 
 var socket = io();
-// console.log(matrix)
+console.log(socket)
 var side = 15;
 
 let colors = ['orange', 'blue', 'white', 'pink', 'purple']
@@ -41,12 +41,12 @@ function draww(matrix) {
         }
     }
 }
-setInterval(function(){
+// setInterval(function(){
 
-    socket.on('send matrix', draww)
-},1000)
+//     socket.on('send matrix', draww)
+// },1000)
    
-
+draww()
 
 btn = document.getElementById("")
 function hey(){
