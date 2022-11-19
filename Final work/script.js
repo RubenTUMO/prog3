@@ -7,7 +7,7 @@ let colors = ['orange', 'blue', 'white', 'pink', 'purple']
 
 function setup() {
     // frameRate(5);
-    createCanvas(35  * side, 35 * side);
+    createCanvas(50  * side, 50 * side);
     background('#acacac');
 }
 
@@ -41,14 +41,11 @@ function draww(matrix) {
         }
     }
 }
-// setInterval(function(){
 
-//     socket.on('send matrix', draww)
-// },1000)
-   
-draww()
+socket.on('send matrix', draww)
+// draww()
 
-btn = document.getElementById("")
-function hey(){
-    socket.emit("barev")
-}
+// btn = document.getElementById("")
+// function hey(){
+//     socket.emit("barev")
+// }

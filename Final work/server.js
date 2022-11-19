@@ -14,7 +14,7 @@ server.listen(3000);
 
 
 function generate(matLen, gr, grEat, pr, zomb, flow) {
-  let matrix = []
+  var matrix = []
   for (let i = 0; i < matLen; i++) {
     matrix[i] = []
     for (let j = 0; j < matLen; j++) {
@@ -63,7 +63,7 @@ function generate(matLen, gr, grEat, pr, zomb, flow) {
   }
   return matrix
 }
- matrix = generate(525, 25, 30, 30, 9, 5)
+ matrix = generate(50, 25, 30, 30, 9, 5)
 io.sockets.emit('send matrix', matrix)
 // console.log(matrix);
  grassArr = []
