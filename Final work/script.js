@@ -6,12 +6,12 @@ let colors = ['orange', 'blue', 'white', 'pink', 'purple']
 
 function setup() {
     frameRate(5);
-    createCanvas(50  * side, 50 * side);
+    createCanvas(50 * side, 50 * side);
     background('#acacac');
 }
 
 function draww(matrix) {
-// console.log(matrix);
+    // console.log(matrix);
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
@@ -40,40 +40,40 @@ function draww(matrix) {
         }
     }
 }
-socket.on('grassLength',Grasslength);
-socket.on('grassEaterLength',GrassEaterlength);
-socket.on('PredatorLength',Predatorlength);
-socket.on('ZombieLength',Zombielength);
-socket.on('FlowerLength',Flowerlength);
+socket.on('grassLength', Grasslength);
+socket.on('grassEaterLength', GrassEaterlength);
+socket.on('PredatorLength', Predatorlength);
+socket.on('ZombieLength', Zombielength);
+socket.on('FlowerLength', Flowerlength);
 socket.on('send matrix', draww);
 
-function hey(){
+function hey() {
     socket.emit("barev")
-    
+
 };
 
-function Grasslength(data){
+function Grasslength(data) {
     grassData = data;
     pobject = document.querySelector('#grasslength');
     pobject.innerText = grassData;
 };
-function GrassEaterlength(data){
+function GrassEaterlength(data) {
     grassData = data;
     pobject = document.querySelector('#grassEaterlength');
-    pobject.innerText =  grassData;
+    pobject.innerText = grassData;
 };
-function Predatorlength(data){
+function Predatorlength(data) {
     grassData = data;
     pobject = document.querySelector('#Predatorlength');
-    pobject.innerText =  grassData;
+    pobject.innerText = grassData;
 };
-function Zombielength(data){
+function Zombielength(data) {
     grassData = data;
     pobject = document.querySelector('#Zombielength');
     pobject.innerText = grassData;
 };
-function Flowerlength(data){
+function Flowerlength(data) {
     grassData = data;
     pobject = document.querySelector('#Flowerlength');
-    pobject.innerText =  grassData;
+    pobject.innerText = grassData;
 };

@@ -63,14 +63,14 @@ function generate(matLen, gr, grEat, pr, zomb, flow) {
   }
   return matrix
 }
- matrix = generate(50, 25, 30, 30, 9, 5)
+matrix = generate(50, 25, 30, 30, 9, 5)
 io.sockets.emit('send matrix', matrix)
 // console.log(matrix);
- grassArr = []
- grassEaterArr = []
- predatorArr = []
- zombieArr = []
- flowerArr = []
+grassArr = []
+grassEaterArr = []
+predatorArr = []
+zombieArr = []
+flowerArr = []
 
 Grass = require("./Grass")
 GrassEater = require("./GrassEater")
@@ -135,7 +135,7 @@ io.on('connection', function (socket) {
   createObject(matrix)
 })
 count = 1
-function hey(gr){
+function hey(gr) {
   for (let i = 0; i < gr; i++) {
     let x = Math.floor(Math.random() * matLen)
     let y = Math.floor(Math.random() * matLen)
@@ -147,18 +147,19 @@ function hey(gr){
     }
   }
 }
-function statistics(){
-  io.sockets.emit('grassLength',grassArr.length);
-  io.sockets.emit('grassEaterLength',grassEaterArr.length);
-  io.sockets.emit('PredatorLength',predatorArr.length);
-  io.sockets.emit('ZombieLength',zombieArr.length);
-  io.sockets.emit('FlowerLength',flowerArr.length);
+function statistics() {
+  io.sockets.emit('grassLength', grassArr.length);
+  io.sockets.emit('grassEaterLength', grassEaterArr.length);
+  io.sockets.emit('PredatorLength', predatorArr.length);
+  io.sockets.emit('ZombieLength', zombieArr.length);
+  io.sockets.emit('FlowerLength', flowerArr.length);
 }
-setInterval(statistics,1000);
+setInterval(statistics, 1000);
 
-io.on("connection",function (socket){
+io.on("connection", function (socket) {
 
-    socket.on("barev",hey)})
-   
+  socket.on("barev", hey)
+})
+
 
 
