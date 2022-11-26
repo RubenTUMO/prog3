@@ -70,7 +70,7 @@
 
         <button class="accordion">GrassEater</button>
         <div class="panel">
-            <button class="but" onclick="hey()">Create 1 GrassEater</button>
+            <button class="but" onclick="">Create 1 GrassEater</button>
             <button class="but">Create 2 GrassEaters</button>
             <button class="but">Create 5 GrassEaters</button>
             <button class="but">Create 10 GrassEaters</button>
@@ -82,7 +82,7 @@
 
         <button class="accordion">Predator</button>
         <div class="panel">
-            <button class="but" onclick="hey()">Create 1 Predator</button>
+            <button class="but" onclick="">Create 1 Predator</button>
             <button class="but">Create 2 Predators</button>
             <button class="but">Create 5 Predators</button>
             <button class="but">Create 10 Predators</button>
@@ -93,7 +93,7 @@
         </div>
         <button class="accordion">Zombie</button>
         <div class="panel">
-            <button class="but" onclick="hey()">Create 1 Zombie</button>
+            <button class="but" onclick="">Create 1 Zombie</button>
             <button class="but">Create 2 Zombies</button>
             <button class="but">Create 5 Zombies</button>
             <button class="but">Create 10 Zombies</button>
@@ -105,7 +105,7 @@
         </div>
         <button class="accordion">Flower</button>
         <div class="panel">
-            <button class="but" onclick="hey()">Create 1 Flower</button>
+            <button class="but" onclick="">Create 1 Flower</button>
             <button class="but">Create 2 Flowers</button>
             <button class="but">Create 5 Flowers</button>
             <button class="but">Create 10 Flowers</button>
@@ -185,14 +185,14 @@
     <h1></h1>
     <style>
         #defaultCanvas0 {
-            position: absolute;
-            margin-left: 700px;
+            position: relative;
+            margin-left: 600px;
             border: 3px gray solid
         }
 
         #maindiv {
             display: block;
-            width: 100pnpmx;
+            width: 100px;
             height: auto;
         }
     </style>
@@ -227,12 +227,12 @@
             background-color: #eee;
             overflow: hidden;
 
-
         }
 
         #tools {
             display: flex;
             flex-direction: column;
+            position:fixed
         }
 
         /* CSS */
@@ -251,13 +251,14 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
-            margin: 4px
+            margin: 4px;
         }
 
         .but:active {
             box-shadow: 0px 0px 0px 0px;
             top: 5px;
             left: 5px;
+
         }
 
         @media (min-width: 768px) {

@@ -1,12 +1,11 @@
 
 var socket = io();
-console.log(socket)
 var side = 15;
 
 let colors = ['orange', 'blue', 'white', 'pink', 'purple']
 
 function setup() {
-    // frameRate(5);
+    frameRate(5);
     createCanvas(50  * side, 50 * side);
     background('#acacac');
 }
@@ -43,9 +42,8 @@ function draww(matrix) {
 }
 
 socket.on('send matrix', draww)
-// draww()
 
-// btn = document.getElementById("")
-// function hey(){
-//     socket.emit("barev")
-// }
+function hey(){
+    socket.emit("barev")
+    
+}

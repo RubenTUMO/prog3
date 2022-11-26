@@ -87,20 +87,20 @@ function createObject(matrix) {
         grassArr.push(gr)
         // console.log(grassArr);
       } else if (matrix[y][x] == 2) {
-        let gr = new GrassEater(x, y)
-        grassEaterArr.push(gr)
+        let grEat = new GrassEater(x, y)
+        grassEaterArr.push(grEat)
       }
       else if (matrix[y][x] == 3) {
-        let gr = new Predator(x, y)
-        predatorArr.push(gr)
+        let pr = new Predator(x, y)
+        predatorArr.push(pr)
       }
       else if (matrix[y][x] == 4) {
-        let gr = new Zombie(x, y)
-        zombieArr.push(gr)
+        let zomb = new Zombie(x, y)
+        zombieArr.push(zomb)
       }
       else if (matrix[y][x] == 5) {
-        let gr = new Flower(x, y)
-        flowerArr.push(gr)
+        let flow = new Flower(x, y)
+        flowerArr.push(flow)
       }
 
     }
@@ -128,27 +128,47 @@ function game() {
   }
   io.sockets.emit("send matrix", matrix);
 }
-setInterval(game, 1000)
+setInterval(game, 500)
 
+sendData = {
+        
+  GrassValue: grassArr.length,
+  GrasseaterValue: grassEaterArr.length,
+  PredatorValue: predatorArr.length,
+  ZombieValue: zombieArr.length,
+  FlowerValue: flowerArr.length
+}
+io.sockets.emit("data", sendData)
 io.on('connection', function (socket) {
   createObject(matrix)
 })
 count = 1
-function hey () {
-  for (var y = 0; y < matrix.length; y++) {
-		for (var x = 0; x < matrix[y].length; x++) {
-		if (matrix[y][x] == 0) {
-				let  gr = new Grass(x, y)
-				grassArr.push(gr)
-				matrix[y][x] = 1			
-		}		 
-	  }
-	}
-    
+function hey(gr){
+  for (let i = 0; i < gr; i++) {
+    let x = Math.floor(Math.random() * matLen)
+    let y = Math.floor(Math.random() * matLen)
+    if (matrix[y][x] == 0) {
+      matrix[y][x] = 1
+      let gr = new Grass(x, y)
+      grassArr.push(gr)
+
+    }
+  }
+  console.log("b")
 }
+statistic = {};
+
+setInterval(function () {
+    statistic.grass = grassArr.length ;
+    stat.grassEater = grassEaterArr.length;
+
+    fs.writeFile("statistics.json", JSON.stringify(statistic), function () {
+
+    })
+}, 30000);
 io.on("connection",function (socket){
 
-    socket.on("barev",hey)
-}
+    socket.on("barev",hey)})
+   
 
-)
+

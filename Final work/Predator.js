@@ -32,7 +32,7 @@ module.exports = class Predator extends LivingCreature{
 
             var newPredator = new Predator(newX, newY);
             predatorArr.push(newPredator);
-            this.energy = 20
+            this.energy = 10
         }
     }
     move() {
