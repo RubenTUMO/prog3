@@ -40,10 +40,40 @@ function draww(matrix) {
         }
     }
 }
-
-socket.on('send matrix', draww)
+socket.on('grassLength',Grasslength);
+socket.on('grassEaterLength',GrassEaterlength);
+socket.on('PredatorLength',Predatorlength);
+socket.on('ZombieLength',Zombielength);
+socket.on('FlowerLength',Flowerlength);
+socket.on('send matrix', draww);
 
 function hey(){
     socket.emit("barev")
     
-}
+};
+
+function Grasslength(data){
+    grassData = data;
+    pobject = document.querySelector('#grasslength');
+    pobject.innerText = grassData;
+};
+function GrassEaterlength(data){
+    grassData = data;
+    pobject = document.querySelector('#grassEaterlength');
+    pobject.innerText =  grassData;
+};
+function Predatorlength(data){
+    grassData = data;
+    pobject = document.querySelector('#Predatorlength');
+    pobject.innerText =  grassData;
+};
+function Zombielength(data){
+    grassData = data;
+    pobject = document.querySelector('#Zombielength');
+    pobject.innerText = grassData;
+};
+function Flowerlength(data){
+    grassData = data;
+    pobject = document.querySelector('#Flowerlength');
+    pobject.innerText =  grassData;
+};

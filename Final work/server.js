@@ -130,15 +130,7 @@ function game() {
 }
 setInterval(game, 500)
 
-sendData = {
-        
-  GrassValue: grassArr.length,
-  GrasseaterValue: grassEaterArr.length,
-  PredatorValue: predatorArr.length,
-  ZombieValue: zombieArr.length,
-  FlowerValue: flowerArr.length
-}
-io.sockets.emit("data", sendData)
+
 io.on('connection', function (socket) {
   createObject(matrix)
 })
@@ -154,18 +146,16 @@ function hey(gr){
 
     }
   }
-  console.log("b")
 }
-statistic = {};
+function statistics(){
+  io.sockets.emit('grassLength',grassArr.length);
+  io.sockets.emit('grassEaterLength',grassEaterArr.length);
+  io.sockets.emit('PredatorLength',predatorArr.length);
+  io.sockets.emit('ZombieLength',zombieArr.length);
+  io.sockets.emit('FlowerLength',flowerArr.length);
+}
+setInterval(statistics,1000);
 
-setInterval(function () {
-    statistic.grass = grassArr.length ;
-    stat.grassEater = grassEaterArr.length;
-
-    fs.writeFile("statistics.json", JSON.stringify(statistic), function () {
-
-    })
-}, 30000);
 io.on("connection",function (socket){
 
     socket.on("barev",hey)})

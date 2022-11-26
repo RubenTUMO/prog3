@@ -26,38 +26,38 @@
                 <th scope="row">1</th>
                 <td scope="row" style="background-color:green;"></td>
                 <td>The green colors are Grasses.</td>
-                <td id="grassCount"></td>
+                <td class="tdd" id="grasslength"></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td scope="row" style="background-color:orange;"></td>
                 <td>The orange colors are GrassEaters. They can eat the grasses.</td>
-                <td id="grassEaterCount"></td>
+                <td class="tdd" id="grassEaterlength"></td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td scope="row" style="background-color:red;"></td>
                 <td>The red colors are Predators. They can eat the GrassEater </td>
-                <td id="PredatorCount"></td>
+                <td class="tdd" id='Predatorlength'></td>
             </tr>
             <tr>
                 <th scope="row">4</th>
                 <td scope="row" style="background-color:darkcyan;"></td>
                 <td>The darkcyan colors are Zombies. They can eat the Predators and GrassEaters.</td>
-                <td id="ZombieCount"></td>
+                <td class="tdd" id="Zombielength"></td>
             </tr>
             <tr>
                 <th scope="row">5</th>
                 <td scope="row" style="background: linear-gradient(45deg, orange, blue, white, pink, purple);"></td>
                 <td>The colorfuls are Flowers. They are growing in the Grasses.</td>
-                <td id="FlowerCount"></td>
+                <td class="tdd" id="Flowerlength"></td>
             </tr>
         </tbody>
     </table>
     <div id="tools">
         <button class="accordion">Grass</button>
         <div class="panel">
-            <button class="but" role="button " onclick="hey()">Create 1 Grass</button>
+            <button id="Grass-btn" role="button " onclick="hey()">Create 1 Grass</button>
             <button class="but">Create 2 Grasses</button>
             <button class="but">Create 5 Grasses</button>
             <button class="but">Create 10 Grasses</button>
@@ -115,7 +115,6 @@
             <button class="but">Remove 10 Flowers</button>
 
         </div>
-    </div>
     <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
@@ -151,6 +150,9 @@
             content: "\2796";
         }
 
+        #grasslength{
+         margin-left: 10px;
+        }
         .panel {
             padding: 0 18px;
             background-color: white;
@@ -199,6 +201,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script src="script.js"></script>
     <style>
+        .statistics{
+            margin-left: 300px;
+        }
         .accordion {
             background-color: #eee;
             color: #444;
