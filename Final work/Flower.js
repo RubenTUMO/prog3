@@ -16,7 +16,7 @@ module.exports = class Flower extends LivingCreature {
             matrix[newY][newX] = 5;
 
             var newFlower = new Flower(newX, newY, 5);
-            grassArr.push(newFlower);
+            flowerArr.push(newFlower);
             this.multiply = 0;
         }
         if (emptyCells == 0) {
@@ -26,7 +26,7 @@ module.exports = class Flower extends LivingCreature {
                     flowerArr.splice(i, 1);
                     break;
                 }
-            }
+            } 
         }
     }
 }

@@ -81,7 +81,7 @@ module.exports = class Zombie extends LivingCreature {
             }
 
 
-            if (this.energy >= 30) {
+            if (this.energy >= 90) {
                 this.mul()
             }
         } else {

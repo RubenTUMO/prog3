@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="socket.io/socket.io.js"></script>
-    <title>FieldForest</title>
-    <link rel="shortcut icon" href="favicon/favicon.ico">
-    <link rel="icon" type="image/gif" href="favicon/animated_favicon1.gif">
+    <title>Eat or Die</title>
+    <link rel="icon" href="favicon.png">
+    
 </head>
 
 <body>
+    <img src="clean.png" class="bu" onclick="hey20()" alt="">
     <table class="table table-hover">
         <thead>
             <tr>
@@ -24,95 +25,88 @@
         <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td scope="row" style="background-color:green;"></td>
+                <td scope="row" style="background: linear-gradient(45deg,white, #55C233, green, #DAA520)"></td>
                 <td>The green colors are Grasses.</td>
                 <td class="tdd" id="grasslength"></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td scope="row" style="background-color:orange;"></td>
-                <td>The orange colors are GrassEaters. They can eat the grasses.</td>
+                <td>The orange colors are GrassEaters. They can eat grass.</td>
                 <td class="tdd" id="grassEaterlength"></td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td scope="row" style="background-color:red;"></td>
-                <td>The red colors are Predators. They can eat the GrassEater </td>
+                <td>The red colors are Predators. They can eat GrassEater and Wild Flower. </td>
                 <td class="tdd" id='Predatorlength'></td>
             </tr>
             <tr>
                 <th scope="row">4</th>
                 <td scope="row" style="background-color:darkcyan;"></td>
-                <td>The darkcyan colors are Zombies. They can eat the Predators and GrassEaters.</td>
+                <td>The darkcyan colors are Zombies. They can eat Predator and GrassEater.</td>
                 <td class="tdd" id="Zombielength"></td>
             </tr>
             <tr>
                 <th scope="row">5</th>
                 <td scope="row" style="background: linear-gradient(45deg, orange, blue, white, pink, purple);"></td>
-                <td>The colorfuls are Flowers. They are growing in the Grasses.</td>
+                <td>The colorfuls are Flowers. They are growing on the Grass.</td>
                 <td class="tdd" id="Flowerlength"></td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td scope="row" style="background:#072B0B"></td>
+                <td>The darkgreens are Wild Flowers. They can eat zombie.</td>
+                <td class="tdd" id="WildFlowerlength"></td>
             </tr>
         </tbody>
     </table>
     <div id="tools">
         <button class="accordion">Grass</button>
         <div class="panel">
-            <button class="but" role="button " onclick="hey()">Create 1 Grass</button>
-            <button class="but">Create 2 Grasses</button>
-            <button class="but">Create 5 Grasses</button>
-            <button class="but">Create 10 Grasses</button>
-            <button class="but">Remove 1 Grass</button>
-            <button class="but">Remove 2 Grasses</button>
-            <button class="but"> Remove 5 Grasses</button>
-            <button class="but">Remove 10 Grasses</button>
-
+            <button class="but" role="button" onclick="hey()">Create 1 Grass</button>
+            <button class="but" onclick="hey1()">Create 2 Grasses</button>
+            <button class="but" onclick="hey2()">Create 5 Grasses</button>
+            <button class="but" onclick="hey3()">Create 10 Grasses</button>
         </div>
 
         <button class="accordion">GrassEater</button>
         <div class="panel">
-            <button class="but" onclick="">Create 1 GrassEater</button>
-            <button class="but">Create 2 GrassEaters</button>
-            <button class="but">Create 5 GrassEaters</button>
-            <button class="but">Create 10 GrassEaters</button>
-            <button class="but">Remove 1 GrassEater</button>
-            <button class="but">Remove 2 GrassEaters</button>
-            <button class="but">Remove 5 GrassEaters</button>
-            <button class="but">Remove 10 GrassEaters</button>
+            <button class="but" onclick="hey4()">Create 1 GrassEater</button>
+            <button class="but" onclick="hey5()">Create 2 GrassEaters</button>
+            <button class="but" onclick="hey6()">Create 5 GrassEaters</button>
+            <button class="but" onclick="hey7()">Create 10 GrassEaters</button>
         </div>
 
         <button class="accordion">Predator</button>
         <div class="panel">
-            <button class="but" onclick="">Create 1 Predator</button>
-            <button class="but">Create 2 Predators</button>
-            <button class="but">Create 5 Predators</button>
-            <button class="but">Create 10 Predators</button>
-            <button class="but">Remove 1 Predator</button>
-            <button class="but">Remove 2 Predators</button>
-            <button class="but">Remove 5 Predators</button>
-            <button class="but">Remove 10 Predators</button>
+            <button class="but" onclick="hey8()">Create 1 Predator</button>
+            <button class="but" onclick="hey9()">Create 2 Predators</button>
+            <button class="but" onclick="hey10()">Create 5 Predators</button>
+            <button class="but" onclick="hey11()">Create 10 Predators</button>
         </div>
         <button class="accordion">Zombie</button>
         <div class="panel">
-            <button class="but" onclick="">Create 1 Zombie</button>
-            <button class="but">Create 2 Zombies</button>
-            <button class="but">Create 5 Zombies</button>
-            <button class="but">Create 10 Zombies</button>
-            <button class="but">Remove 1 Zombie</button>
-            <button class="but">Remove 2 Zombies</button>
-            <button class="but">Remove 5 Zombies</button>
-            <button class="but">Remove 10 Zombies</button>
+            <button class="but" onclick="hey12()">Create 1 Zombie</button>
+            <button class="but" onclick="hey13()">Create 2 Zombies</button>
+            <button class="but" onclick="hey14()">Create 5 Zombies</button>
+            <button class="but" onclick="hey15()">Create 10 Zombies</button>
 
         </div>
         <button class="accordion">Flower</button>
         <div class="panel">
-            <button class="but" onclick="">Create 1 Flower</button>
-            <button class="but">Create 2 Flowers</button>
-            <button class="but">Create 5 Flowers</button>
-            <button class="but">Create 10 Flowers</button>
-            <button class="but">Remove 1 Flower</button>
-            <button class="but">Remove 2 Flowers</button>
-            <button class="but">Remove 5 Flowers</button>
-            <button class="but">Remove 10 Flowers</button>
+            <button class="but" onclick="hey16()">Create 1 Flower</button>
+            <button class="but" onclick="hey17()">Create 2 Flowers</button>
+            <button class="but" onclick="hey18()">Create 5 Flowers</button>
+            <button class="but" onclick="hey19()">Create 10 Flowers</button>
+
+        </div>
+        <button class="accordion">WildFlower</button>
+        <div class="panel">
+            <button class="but" onclick="hey21()">Create 1 WildFlower</button>
+            <button class="but" onclick="hey22()">Create 2 WildFlowers</button>
+            <button class="but" onclick="hey23()">Create 5 WildFlowers</button>
+            <button class="but" onclick="hey24()">Create 10 WildFlowers</button>
 
         </div>
         <script>
@@ -128,54 +122,6 @@
                     } else {
                         panel.style.display = "block";
                     }
-                });
-            }
-        </script>
-        <style>
-            tr,
-            td,
-            th {
-                border: 2px solid black
-            }
-
-            .accordion:after {
-                content: '\02795';
-                font-size: 13px;
-                color: #777;
-                float: right;
-                margin-left: 5px;
-            }
-
-            .active:after {
-                content: "\2796";
-            }
-
-            #grasslength {
-                margin-left: 10px;
-            }
-
-            .panel {
-                padding: 0 18px;
-                background-color: white;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.2s ease-out;
-            }
-
-            table {
-                position: absolute;
-                margin-left: 1550px
-            }
-        </style>
-
-        <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
                     if (panel.style.maxHeight) {
                         panel.style.maxHeight = null;
                     } else {
@@ -183,8 +129,28 @@
                     }
                 });
             }
-        </script>
 
+        </script>
+        <style>
+
+            tr,
+            td,
+            th {
+                border: 2px solid black;
+                background-color: #eee;
+                
+            }
+
+            #grasslength {
+                margin-left: 10px;
+            }
+
+
+            table {
+                position: absolute;
+                margin-left: 1550px
+            }
+        </style>
         <h1></h1>
         <style>
             #defaultCanvas0 {
@@ -206,17 +172,23 @@
                 margin-left: 300px;
             }
 
+            #tools {
+                display: flex;
+                flex-direction: column;
+                position: fixed
+            }
+
             .accordion {
                 background-color: #eee;
                 color: #444;
                 cursor: pointer;
                 padding: 18px;
                 width: 200px;
-                border: none;
                 text-align: left;
+                border: none;
                 outline: none;
-                font-size: 15px;
                 transition: 0.4s;
+                border: 1px solid black;
             }
 
             .active,
@@ -226,23 +198,29 @@
 
             .panel {
                 width: 164px;
-                height: auto;
                 padding: 0 18px;
                 border: 0px solid aliceblue;
                 display: flex;
                 flex-direction: column;
-                background-color: #eee;
+                background-color: white;
+                max-height: 0;
                 overflow: hidden;
-
+                transition: max-height 0.2s ease-out;
             }
 
-            #tools {
-                display: flex;
-                flex-direction: column;
-                position: fixed
+            .accordion:after {
+                content: '\02795';
+                font-size: 13px;
+                color: #777;
+                float: right;
+                margin-left: 5px;
             }
 
-            /* CSS */
+            .active:after {
+                content: "\2796";
+            }
+
+
             .but {
                 font-family: "Open Sans", sans-serif;
                 font-size: 16px;
@@ -270,6 +248,44 @@
 
             @media (min-width: 768px) {
                 .but {
+                    padding: 0.25em 0.75em;
+                }
+            }
+
+            .bu {
+                font-family: "Open Sans", sans-serif;
+                font-size: 16px;
+                letter-spacing: 2px;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #000;
+                cursor: pointer;
+                border: 3px solid;
+                padding: 0.25em 0.5em;
+                box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+                position: relative;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                margin: 4px;
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                margin-left: 300px;
+                background-color: #eee;
+            }
+
+            .bu:active {
+                box-shadow: 0px 0px 0px 0px;
+                top: 5px;
+                left: 5px;
+                position: absolute;
+
+            }
+
+            @media (min-width: 768px) {
+                .bu {
                     padding: 0.25em 0.75em;
                 }
             }

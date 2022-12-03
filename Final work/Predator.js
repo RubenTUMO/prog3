@@ -2,7 +2,7 @@ let LivingCreature = require('./LivingCreature')
 module.exports = class Predator extends LivingCreature {
     constructor(x, y) {
         super(x, y)
-        this.energy = 45
+        this.energy = 100
     }
     getNewCoordinates() {
         this.directions = [
@@ -52,7 +52,7 @@ module.exports = class Predator extends LivingCreature {
     }
 
     eat() {
-        var emptyCells = this.chooseCell(2);
+        var emptyCells = this.chooseCell(2).concat(this.chooseCell(6));
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
         if (newCell) {
             this.energy++
@@ -68,7 +68,12 @@ module.exports = class Predator extends LivingCreature {
                     break;
                 }
             }
-
+            for (var i in wildflowerArr) {
+                if (newX == wildflowerArr[i].x && newY == wildflowerArr[i].y) {
+                    wildflowerArr.splice(i, 1);
+                    break;
+                }
+            }
             if (this.energy >= 21) {
                 this.mul()
             }
